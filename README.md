@@ -1,19 +1,50 @@
 # Tesouro direto Scraper
 
-Script using selenium to acquire the direct treasure values.
+The scripts with selenium use, extracts the data from the direct treasury, extracting the extract and the protocols from the operations, and returning a json  
+
+## Requeriments  
+
+- **selenium** (`$ pip install selenium`)
+
+  
+
+## To use
+Run tesouro_direto_extrato.py whit cpf and password, you get current extract 
+
+To tesouro_direto_protocolo.py  with cpf and password, you get current month protocol.
 
 
-## Requeriments
 
- - **selenium** (`$ pip install selenium`)
- - **pymysql** (`$ pip install PyMySQL`)
+### Example
 
-## Use
-Para usar basta rodar o script passando o parâmetro o seu cpf e senha  
-### Exemplo
+      $ python tesouro_direto_extrato.py 1234567890 pass123  
 
-    $ python tesouro_direto.py 1234567890 pass123
+      $ python tesouro_direto_protocolo.py 1234567890 pass123
 
-## Optional
+  
 
-You already have in the code the option to insert directly into a table of the data bank mysql, just uncomment the fields of mysql.
+## Return
+Returns a json with the data:
+### Extrato:
+ - titulo
+ - vencimento
+ - valor_investido
+ - valor_bruto_atual
+ - valor_liquido_atual
+ - quant_total
+ - quant_bloqueado
+
+### Protocolo:
+ - numero_protocolo
+ - operacao
+ - situacao
+ - realizacao
+ - liquidacao
+ - nome_representante
+ - titulo
+ - quantidade
+ - valor_unitario
+ - taxa_juros
+ - taxa_b3
+ - taxa_custodia
+ - valor_total
