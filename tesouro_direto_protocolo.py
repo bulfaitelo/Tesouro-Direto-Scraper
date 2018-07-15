@@ -27,7 +27,7 @@ def is_element_present_xpath(xpath):
 print('[ {"inicio": "%s"},' % str(datetime.now()))
 # necessario para funcionar remotamente
 opts = FirefoxOptions()
-# opts.add_argument("--headless")
+opts.add_argument("--headless")
 firefox = webdriver.Firefox(firefox_options=opts)
 # ============================================
 
@@ -171,5 +171,5 @@ if is_element_present_xpath("//table[contains(@class, 'responsive')]/tbody[2]/tr
 # RESGATE -- FIM
 
 # Fechar navegador
-# firefox.quit()
+firefox.quit()
 print('{"fim": "%s"} ]' % str(datetime.now()))
