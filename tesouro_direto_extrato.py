@@ -1,13 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from selenium import webdriver
+# =========== IMPORTS =========== 
 from datetime import datetime
-from selenium.webdriver.common.keys import Keys
+import dateutil.relativedelta
+from time import sleep
 import sys
+from selenium import webdriver
+from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
+# ===============================
 
 print('[ {"inicio": "%s"},' % str(datetime.now()))
 # necessario para funcionar remotamente
-from selenium.webdriver import FirefoxOptions
 opts = FirefoxOptions()
 opts.add_argument("--headless")
 firefox = webdriver.Firefox(firefox_options=opts)
@@ -16,23 +25,24 @@ firefox = webdriver.Firefox(firefox_options=opts)
 # parametros
 user_login = sys.argv[1]
 user_pass = sys.argv[2]
+wait_time = 10
 # =====================================
 
 # PAGINA DE LOGIN
 firefox.get('https://tesourodireto.bmfbovespa.com.br/portalinvestidor/')
 
 # preenchendo formulario de login
-login = firefox.find_element_by_id('BodyContent_txtLogin')
-password = firefox.find_element_by_id('BodyContent_txtSenha')
+login = WebDriverWait(firefox, wait_time).until(EC.presence_of_element_located((By.ID, 'BodyContent_txtLogin'))) 
+password = WebDriverWait(firefox, wait_time).until(EC.presence_of_element_located((By.ID, 'BodyContent_txtSenha'))) 
 login.send_keys("", user_login)
 password.send_keys("", user_pass)
-login_attempt = firefox.find_element_by_id('BodyContent_btnLogar')
+login_attempt = WebDriverWait(firefox, wait_time).until(EC.presence_of_element_located((By.ID, 'BodyContent_btnLogar'))) 
 login_attempt.click()
 # ====================================
 
 #  pagina de consulta
 firefox.get('https://tesourodireto.bmfbovespa.com.br/portalinvestidor/extrato.aspx')
-btn_consultar = firefox.find_element_by_id('BodyContent_btnConsultar')
+btn_consultar = WebDriverWait(firefox, wait_time).until(EC.presence_of_element_located((By.ID, 'BodyContent_btnConsultar'))) 
 btn_consultar.click()
 # =====================================
 
