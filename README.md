@@ -21,7 +21,7 @@ composer require bulfaitelo/tesouro-direto-scraper
 or add
 
 ```json
-"bulfaitelo/tesouro-direto-scraper": "~1.0.0",
+"bulfaitelo/tesouro-direto-scraper": "^1.0",
 ```
 
 to the require section of your composer.json.
