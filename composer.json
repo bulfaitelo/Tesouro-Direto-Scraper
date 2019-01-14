@@ -11,8 +11,5 @@
             "email": "bulfaitelo@gmail.com",
             "homepage": "http://seld.be"           
         }
-    ],
-    "require": {
-        "python": "2.*"
-    }    
+    ]
 }
