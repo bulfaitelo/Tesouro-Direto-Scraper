@@ -1,0 +1,18 @@
+{
+    "name": "bulfaitelo/tesouro-direto-scraper",
+    "type": "library",
+    "description": "The scripts with selenium use, extracts the data from the direct treasury",
+    "keywords": ["scraper","Tesouro Direto"],
+    "homepage": "https://github.com/bulfaitelo/Tesouro-Direto-Scraper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thiago Rodrigues",
+            "email": "bulfaitelo@gmail.com",
+            "homepage": "http://seld.be"           
+        }
+    ],
+    "require": {
+        "python": "2.*"
+    }    
+}
