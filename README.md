@@ -1,5 +1,4 @@
 Select Language: **English**, [Portuguese](https://github.com/bulfaitelo/Tesouro-Direto-Scraper/blob/master/README-pt.md)
-Anisoket
 ========
 # Tesouro direto Scraper  
 
