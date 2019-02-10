@@ -1,21 +1,21 @@
-Select Language: **English**, [Portuguese](https://github.com/bulfaitelo/Tesouro-Direto-Scraper/blob/master/README-pt.md)
+Select Language: [English](https://github.com/bulfaitelo/Tesouro-Direto-Scraper/blob/master/README.md), **Portuguese**
 Anisoket
 ========
 # Tesouro direto Scraper  
 
-The scripts with selenium use, extracts the data from the direct treasury, extracting the extract and the protocols from the operations, and returning a json  
+Os scripts com uso de Selenium, extraem os dados da Tesouro direto, extraindo o extrato e os protocolos das operações, e retornando um json
 
-## Installation  
+## Instalação  
 
-The preferred way to install the Yii framework is through [composer](http://getcomposer.org/download/).
+Caso prefira instalar pelo Composer: [composer](http://getcomposer.org/download/).
 
-Either run  
+Rode o comando? 
 
 ```
 composer require bulfaitelo/tesouro-direto-scraper
 
 ```
-or add
+ou adicione ao `composer.json`
 
 ```json
 
@@ -23,34 +23,23 @@ or add
 
 ```
 
-  
-
-to the require section of your composer.json.
-
-  
-
-## Requeriments
+## Requerimentos
   
 
 - **selenium** (`$ pip install selenium`)
  
 
-## To use
+## Para Usar:
  
 
-Run tesouro_direto_extrato.py whit cpf and password, you get current extract
+Execue o  `tesouro_direto_extrato.py` Com o cpf e senha, para você conseguir o extrato do dia
 
-  
+Execute o `tesouro_direto_protocolo.py` com cpf e senha, para pegar o protocolo do mês em questão
 
-To tesouro_direto_protocolo.py with cpf and password, you get current month protocol.
+#### Opcional
+Você pode adicionar um terceiro paraletro para que seja criado um printscrenn do erro (caso ocorra) basta passa como terceiri parametro o caminho de onde queria que seja salvo o erro. Você pode definir o nome do erro na da variavel :`default_file_name = 'erro.png'`
 
-#### Optional
-You can add a third parameter, to create a print screen error, defining file path. You can define erro name on `default_file_name = 'erro.png'`
-
-
-### Example
-
-  
+### Exemplos de Uso  
 
 $ python tesouro_direto_extrato.py 1234567890 pass123
 
@@ -64,9 +53,9 @@ $ python tesouro_direto_precos_taxa_titulo.py
 
 $ python tesouro_direto_precos_taxa_titulo.py /project_path/errors/ 
 
-## Return  
+## Retorno  
 
-Returns a json with the data: 
+Retorna o `json` com os seguintes dados:
 
 ### Extrato:  
 

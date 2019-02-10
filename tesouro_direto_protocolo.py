@@ -27,7 +27,7 @@ def is_element_present_xpath(xpath):
 print('[ {"inicio": "%s"},' % str(datetime.now()))
 # necessario para funcionar remotamente
 opts = FirefoxOptions()
-# opts.add_argument("--headless")
+opts.add_argument("--headless")
 firefox = webdriver.Firefox(firefox_options=opts)
 # ============================================
 
@@ -109,7 +109,10 @@ try:
             taxa_custodia = (detalhes_modal.find_element_by_xpath('./div[2]/div/div/table/tbody/tr/td[6]').text).replace('.', '').replace(',','.')
             valor_total = (detalhes_modal.find_element_by_xpath('./div[2]/div/div/table/tbody/tr/td[7]').text).replace('.', '').replace(',','.')
             # print valores
-            print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total))#.encode('utf8')
+            if sys.platform.startswith('win32'):
+                print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total))
+            else:
+                print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total)).encode('utf8')
             # fechando modal 
             sair_modal = detalhes_modal.find_element_by_class_name('close-reveal-modal')
             sair_modal.click()
@@ -117,6 +120,7 @@ try:
 
     # RESGATE
     # Reiniciando a Consulta
+    sleep(1)
     btn_consultar = firefox.find_element_by_id('BodyContent_btnConsultar')
     btn_consultar.click()
     # selecionando a operação
@@ -169,7 +173,10 @@ try:
             taxa_custodia = (detalhes_modal.find_element_by_xpath('./div[2]/div/div/table/tbody/tr/td[6]').text).replace('.', '').replace(',','.')
             valor_total = (detalhes_modal.find_element_by_xpath('./div[2]/div/div/table/tbody/tr/td[7]').text).replace('.', '').replace(',','.')
             # print valores
-            print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total))#.encode('utf8')
+            if sys.platform.startswith('win32'):
+                print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total))
+            else:
+                print('{ "numero_protocolo": "%s", "operacao": "%s", "situacao": "%s", "realizacao": "%s", "liquidacao": "%s", "representante": "%s", "titulo": "%s", "quantidade": "%s", "valor_unitario": "%s", "taxa_juros": "%s", "taxa_b3": "%s", "taxa_custodia": "%s", "valor_total": "%s" }, ' % (numero_protocolo, operacao, situacao, realizacao, liquidacao, nome_representante, titulo, quantidade, valor_unitario, taxa_juros, taxa_b3, taxa_custodia, valor_total)).encode('utf8')
             # fechando modal 
             sair_modal = detalhes_modal.find_element_by_class_name('close-reveal-modal')
             sair_modal.click()
