@@ -73,7 +73,7 @@ try:
     print('{"fim": "%s"} ]' % str(datetime.now()))
 except Exception:  
     if dir_file is not None:
-        firefox.save_screenshot(dir_file + "\\" + default_file_name)
+        firefox.save_screenshot(dir_file + "/" + default_file_name)
         pass
     firefox.quit()
     raise
